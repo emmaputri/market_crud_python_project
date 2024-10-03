@@ -17,3 +17,18 @@ total_price_mango = mango_amount * mango_price
 total_price = total_price_kiwi + total_price_lychee + total_price_mango
 print("Total Price: Rp. ", total_price)
 
+# Creating a feature that will ask for an amount of money after displaying the final amount to be paid
+money = int(input("Total Paid: Rp. "))
+change = money - total_price
+less = money - total_price
+if money < total_price:
+    print("The amount of money that is not enough to pay")
+    print("Insufficient payment: Rp. ", less)
+elif money == total_price:
+    print("Thank you")
+else:
+    print("Change Rp.", change)
+# When the amount of money given is less, show message "The amount of money that is not enough to pay"
+# When the money given is equal to the total amount to be paid, the text that appears only says "thank you"
+# When the money is greater than the amount of money that must be paid, then information appears in the form of the amount of change that will be received
+
