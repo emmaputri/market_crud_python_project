@@ -1,34 +1,54 @@
-# Create a program that only uses input and print function to make fruit purchase
+stock_lychee = 10
+stock_mango = 10
+stock_kiwi = 10
+
 kiwi_price = int(input("Kiwi Price: Rp. "))
 lychee_price = int(input("Lychee Price: Rp. "))
 mango_price = int(input("Mango Price: Rp. "))
 
-# The use will then be asked to enter the amount to be purchased for each fruit
-kiwi_amount = int(input("Kiwi amount (unit): "))
-lychee_amount = int(input("Lychee amount (unit): "))
-mango_amount = int(input("Mango amount (unit): "))
+while True:
+    kiwi_amount = int(input("Kiwi amount (unit): "))
+    if kiwi_amount > stock_kiwi:
+        print(f"There is not enough kiwi available. Available stock: {stock_kiwi}")
+        print("Please input the amount again.")
+    else:
+        break
 
-# After entering the third quantity, the program will calculate the total price using the print function.
+while True:
+    lychee_amount = int(input("Lychee amount (unit): "))
+    if lychee_amount > stock_lychee:
+        print(f"There is not enough lychee available. Available stock: {stock_lychee}")
+        print("Please input the amount again.")
+    else:
+        break
+
+while True:
+    mango_amount = int(input("Mango amount (unit): "))
+    if mango_amount > stock_mango:
+        print(f"There is not enough mango available. Available stock: {stock_mango}")
+        print("Please input the amount again.")
+    else:
+        break
+
 total_price_kiwi = kiwi_amount * kiwi_price
 total_price_lychee = lychee_amount * lychee_price
 total_price_mango = mango_amount * mango_price
-
-# The way to calculate it is to multiply the unit price by the desired quantity of each fruit, after which the total of the three is added up to become the final price.
 total_price = total_price_kiwi + total_price_lychee + total_price_mango
-print("Total Price: Rp. ", total_price)
 
-# Creating a feature that will ask for an amount of money after displaying the final amount to be paid
-money = int(input("Total Paid: Rp. "))
-change = money - total_price
-less = money - total_price
-if money < total_price:
-    print("The amount of money that is not enough to pay")
-    print("Insufficient payment: Rp. ", less)
-elif money == total_price:
-    print("Thank you")
-else:
-    print("Change Rp.", change)
-# When the amount of money given is less, show message "The amount of money that is not enough to pay"
-# When the money given is equal to the total amount to be paid, the text that appears only says "thank you"
-# When the money is greater than the amount of money that must be paid, then information appears in the form of the amount of change that will be received
+print("Total Price: Rp.", total_price)
 
+while True:
+    money = int(input("Total Paid: Rp. "))
+    if money < total_price:
+        insufficient_payment = total_price - money  
+        print("The amount of money is not enough to pay.")
+        print("Insufficient payment: Rp.", insufficient_payment)
+        print("Please input the amount again.")
+    else:
+        change = money - total_price 
+        if change == 0:
+            print("Thank you!")
+        else:
+            print("Change: Rp.", change)
+        break
+print("Thank you!")
